@@ -5,10 +5,10 @@ from datetime import datetime
 import csv
 import pandas as pd
 
-# After examining the source page, choose which data we want to extract.
+# after examining the source page, choose which data we want to extract.
 header = ['Item', 'Price', 'Date_time']
 
-# Create a new csv file and write in the header row.
+# create a new csv file and write in the header row.
 with open('Invoker_data.csv', 'w', newline='', encoding='UTF8') as f:
     writer = csv.writer(f)
     writer.writerow(header)
@@ -45,14 +45,14 @@ def check_price():
             writer.writerow(row)
 
 
-# Retrieve data
+# retrieve data
 check_price()
 
 df = pd.read_csv(r'Invoker_data.csv')
 df.sort_values(by=['Item', 'Date_time'])
 df
 
-# Inspect our csv file
+# inspect our csv file
 while(True):
     check_price()
     time.sleep(86400)#change time depending on your preference
